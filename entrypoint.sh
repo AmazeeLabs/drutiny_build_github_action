@@ -15,21 +15,21 @@ composer require bomoko/algm_drutiny_profile:dev-master
 composer require bomoko/lagoon-formatter:dev-master
 
 # Build phar
-TAG = echo "$1"
-echo "Tag: ${TAG}"
+tag=$(echo $1)
+echo "Tag: '$tag'"
 
-./bin/build_phar ${TAG}
-ls
+./bin/build_phar $tag
+ls -la
 
 # @TODO: Rename phar to maybe algm_drutiny_<tag>.phar
-phar_file="./drutiny${TAG}.phar"
+phar_file="./drutiny'$tag'.phar"
 echo $phar_file
 
 # Test its runnning
 ./drutiny*.phar profile:list
-DRUTINY_RESULT=$?
-if [ $DRUTINY_RESULT -eq 0 ]; then
-  echo "Successfully ran tests"
+drutiny_result=$?
+if [ $drutiny_result -eq 0 ]; then
+  echo "Successfully ran tests."
 else
   echo "Tests failed"
   exit 1
