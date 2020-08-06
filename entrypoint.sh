@@ -10,7 +10,9 @@ echo "Tag: '$tag'"
 
 composer_packages=$(echo $2)
 echo "Composer packages: '$composer_packages'"
-IFS=', ' read -r -a packages_array <<< "$composer_packages"
+IFS=', ' read -r -a packages_array <<EOF
+  $composer_packages
+EOF
 
 # Checkout latest Drutiny project
 git clone --depth=2 https://github.com/drutiny/drutiny.git drutiny
