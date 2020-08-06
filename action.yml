@@ -1,8 +1,6 @@
 name: 'algm-drutiny-build'
 description: 'This action will create a docker container and output the druity phar'
 inputs:
-  composer-packages:
-    description: 'ALGM drutiny composer packages to include in phar'
   tag-ref:
     description: 'The tag version for the phar build'
     required: true
