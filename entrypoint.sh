@@ -1,5 +1,9 @@
 #!/bin/sh -l
 
+# args
+# $1 :: ${{ inputs.tag-reg }}
+# $2 :: ${{ inputs.composer-packages }}
+
 # Checkout latest Drutiny project
 git clone --depth=2 https://github.com/drutiny/drutiny.git drutiny
 cd ./drutiny

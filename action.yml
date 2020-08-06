@@ -7,6 +7,8 @@ inputs:
     description: 'The tag version for the phar build'
     required: true
     default: 'latest'
+  composer-packages:
+    description: 'Composer packages to include'
 outputs:
   phar:
     description: 'The phar file'
@@ -14,5 +16,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.compser-packages }}
     - ${{ inputs.tag-ref }}
+    - ${{ inputs.compser-packages }}
