@@ -10,6 +10,7 @@ echo "Tag: '$tag'"
 
 composer_packages=$(echo $2)
 echo "Composer packages: '$composer_packages'"
+IFS=', ' read -r -a packages_array <<< "$composer_packages"
 
 # Checkout latest Drutiny project
 git clone --depth=2 https://github.com/drutiny/drutiny.git drutiny
@@ -19,15 +20,13 @@ cd ./drutiny
 composer install --no-interaction --no-progress --no-suggest --no-dev
 
 # Include algm drutiny magic packages
-# TODO: make sure this is actually right ALSO
-# this is the actual repo that we're interested in releasing, so if there are
-# any tags we can pass via GH Actions to make this specific, do it here.
-composer require bomoko/algm_drutiny_profile:dev-master
-composer require bomoko/lagoon-formatter:dev-master
+for package in "${packages_array[@]}"
+do
+    composer require $package
+done
 
 # Build phar
 ./bin/build_phar $tag
-ls -la
 
 # @TODO: Rename phar to maybe algm_drutiny_<tag>.phar
 phar_file="./drutiny$tag.phar"
