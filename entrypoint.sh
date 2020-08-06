@@ -15,7 +15,7 @@ composer require bomoko/algm_drutiny_profile:dev-master
 composer require bomoko/lagoon-formatter:dev-master
 
 # Build phar
-TAG = $1
+TAG = echo "$1"
 echo "Tag: ${TAG}"
 
 ./bin/build_phar ${TAG}
