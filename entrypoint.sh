@@ -30,8 +30,9 @@ done
 # Build phar
 ./bin/build_phar $tag
 
-# @TODO: Rename phar to maybe algm_drutiny_<tag>.phar
-phar_file="./drutiny$tag.phar"
+# Rename phar to algm_drutiny_<tag>.phar
+find . -type f -name 'drutiny*.phar' -execdir mv {} "algm_drutiny_$tag.phar" \;
+phar_file=$(find . -type f -name '*drutiny*.phar')
 echo $phar_file
 
 # Test its runnning
