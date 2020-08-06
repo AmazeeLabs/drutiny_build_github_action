@@ -15,4 +15,4 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.tag-ref }}
-    - ${{ inputs.compser-packages }}
+    - ${{ inputs.composer-packages }}

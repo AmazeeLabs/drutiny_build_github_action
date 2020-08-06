@@ -4,6 +4,13 @@
 # $1 :: ${{ inputs.tag-reg }}
 # $2 :: ${{ inputs.composer-packages }}
 
+# Store args
+tag=$(echo $1)
+echo "Tag: '$tag'"
+
+composer_packages=$(echo $2)
+echo "Composer packages: '$composer_packages'"
+
 # Checkout latest Drutiny project
 git clone --depth=2 https://github.com/drutiny/drutiny.git drutiny
 cd ./drutiny
@@ -19,14 +26,11 @@ composer require bomoko/algm_drutiny_profile:dev-master
 composer require bomoko/lagoon-formatter:dev-master
 
 # Build phar
-tag=$(echo $1)
-echo "Tag: '$tag'"
-
 ./bin/build_phar $tag
 ls -la
 
 # @TODO: Rename phar to maybe algm_drutiny_<tag>.phar
-phar_file="./drutiny'$tag'.phar"
+phar_file="./drutiny$tag.phar"
 echo $phar_file
 
 # Test its runnning
