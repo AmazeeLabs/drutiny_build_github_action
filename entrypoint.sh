@@ -36,7 +36,7 @@ phar_file=$(find . -type f -name '*drutiny*.phar')
 echo $phar_file
 
 # Test its runnning
-./drutiny*.phar profile:list
+./algm_drutiny*.phar profile:list
 drutiny_result=$?
 if [ $drutiny_result -eq 0 ]; then
   echo "Successfully ran tests."
