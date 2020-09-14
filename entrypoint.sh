@@ -3,6 +3,7 @@
 # args
 # $1 :: ${{ inputs.tag-reg }}
 # $2 :: ${{ inputs.composer-packages }}
+# $3 :: ${{ inputs.composer-repos }}
 
 # Store args
 tag=$(echo $1)
@@ -11,7 +12,13 @@ echo "Tag: '$tag'"
 composer_packages=$(echo $2)
 echo "Composer packages: '$composer_packages'"
 IFS=', ' read -r -a packages_array <<EOF
-  $composer_packages
+$composer_packages
+EOF
+
+composer_repos=$(echo $3)
+echo "Composer repos: '$composer_repos'"
+IFS=';' read -r -a repo_array <<EOF
+$composer_repos
 EOF
 
 # Checkout latest Drutiny project
@@ -20,6 +27,13 @@ cd ./drutiny
 
 # Composer install
 composer install --no-interaction --no-progress --no-suggest --no-dev
+
+# Include any repo definitions
+for repo in "${repo_array[@]}"
+do
+    echo "composer config repositories.$repo"
+    composer config repositories.$repo	
+done
 
 # Include algm drutiny magic packages
 for package in "${packages_array[@]}"
