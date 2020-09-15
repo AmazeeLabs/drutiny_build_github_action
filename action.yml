@@ -16,3 +16,4 @@ runs:
   args:
     - ${{ inputs.tag-ref }}
     - ${{ inputs.composer-packages }}
+    - ${{ inputs.composer-repos }}
