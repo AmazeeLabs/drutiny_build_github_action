@@ -23,6 +23,11 @@ with:
 
 ## Local dev
 
-To build locally, try:
+Testing the test.sh locally copy ./entrypoint.sh to ./test.sh:
+
+`./test.sh v1.0.12 "bomoko/algm_drutiny_profile:dev-master, bomoko/lagoon-formatter:dev-master" "bomoko/algm_drutiny_plugin vcs https://github.com/AmazeeLabs/algm_drutiny.git"`
+
+
+To docker build locally, try:
 
 `docker build -t test-gh-action . && docker run -i -t --name=test-gh-action test-gh-action`

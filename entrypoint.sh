@@ -32,7 +32,7 @@ composer install --no-interaction --no-progress --no-suggest --no-dev
 for repo in "${repo_array[@]}"
 do
     echo "composer config repositories.$repo"
-    composer config repositories.$repo	
+    composer config repositories.$repo
 done
 
 # Include algm drutiny magic packages
@@ -50,7 +50,7 @@ phar_file=$(find . -type f -name '*drutiny*.phar')
 echo $phar_file
 
 # Test its runnning
-./algm_drutiny*.phar profile:list
+./algm_drutiny*.phar profile:list && ./algm_drutiny*.phar policy:list
 drutiny_result=$?
 if [ $drutiny_result -eq 0 ]; then
   echo "Successfully ran tests."
