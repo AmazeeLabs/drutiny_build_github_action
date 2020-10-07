@@ -21,6 +21,10 @@ IFS=';' read -r -a repo_array <<EOF
 $composer_repos
 EOF
 
+# Clean up
+rm -rf ./drutiny
+composer clearcache
+
 # Checkout latest Drutiny project
 git clone --depth=2 https://github.com/drutiny/drutiny.git drutiny
 cd ./drutiny
@@ -50,7 +54,7 @@ phar_file=$(find . -type f -name '*drutiny*.phar')
 echo $phar_file
 
 # Test its runnning
-./algm_drutiny*.phar profile:list && ./algm_drutiny*.phar policy:list
+./algm_drutiny*.phar profile:list && ./algm_drutiny*.phar policy:list && ./algm_drutiny*.phar policy:audit Test:Fail @none --format=lagoon
 drutiny_result=$?
 if [ $drutiny_result -eq 0 ]; then
   echo "Successfully ran tests."
