@@ -54,7 +54,7 @@ phar_file=$(find . -type f -name '*drutiny*.phar')
 echo $phar_file
 
 # Test its runnning
-./algm_drutiny*.phar profile:list && ./algm_drutiny*.phar policy:list && ./algm_drutiny*.phar policy:audit Test:Fail @none --format=lagoon
+./algm_drutiny*.phar profile:list && ./algm_drutiny*.phar policy:list
 drutiny_result=$?
 if [ $drutiny_result -eq 0 ]; then
   echo "Successfully ran tests."
