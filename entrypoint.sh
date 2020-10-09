@@ -35,14 +35,14 @@ composer install --no-interaction --no-progress --no-suggest --no-dev --ignore-p
 # Include any repo definitions
 for repo in "${repo_array[@]}"
 do
-    echo "composer config repositories.$repo"
-    composer config repositories.$repo
+  echo "composer config repositories.$repo"
+  composer config repositories.$repo
 done
 
-# Include algm Dsrutiny magic packages
+# Include ALGM Drutiny magic packages
 for package in "${packages_array[@]}"
 do
-    composer require $package --ignore-platform-reqs --no-suggest
+  composer require $package --ignore-platform-reqs --no-suggest --no-interaction
 done
 
 # Build phar
