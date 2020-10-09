@@ -42,7 +42,7 @@ done
 # Include algm Dsrutiny magic packages
 for package in "${packages_array[@]}"
 do
-    composer require $package
+    composer require $package --ignore-platform-reqs --no-suggest --no-cache
 done
 
 # Build phar
