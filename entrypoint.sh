@@ -29,8 +29,8 @@ composer clearcache
 git clone --depth=2 https://github.com/drutiny/drutiny.git drutiny
 cd ./drutiny
 
-# Composer install
-composer install --no-interaction --no-progress --no-suggest --no-dev
+# Composer install Drutiny
+composer install --no-interaction --no-progress --no-suggest --no-dev --ignore-platform-reqs
 
 # Include any repo definitions
 for repo in "${repo_array[@]}"
@@ -39,7 +39,7 @@ do
     composer config repositories.$repo
 done
 
-# Include algm drutiny magic packages
+# Include algm Dsrutiny magic packages
 for package in "${packages_array[@]}"
 do
     composer require $package
