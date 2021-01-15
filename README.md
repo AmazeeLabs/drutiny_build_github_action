@@ -25,7 +25,7 @@ with:
 
 To docker build locally, try:
 
-`docker build -t test-gh-action . && docker run -i -t --name=test-gh-action test-gh-action "bomoko/algm_drutiny_profile:dev-master, bomoko/lagoon-formatter:dev-master" "bomoko/algm_drutiny_profile vcs https://github.com/AmazeeLabs/algm_drutiny.git"`
+`docker build -t test-gh-action . && docker run -i -t --name=test-gh-action test-gh-action "TEST" "bomoko/lagoon-formatter:dev-master" "bomoko/algm_drutiny_profile vcs https://github.com/AmazeeLabs/algm_drutiny.git"`
 
 To run container with args again:
-`docker run -i -t --name=test-gh-action test-gh-action "bomoko/algm_drutiny_profile:dev-master, bomoko/lagoon-formatter:dev-master" "bomoko/algm_drutiny_profile vcs https://github.com/AmazeeLabs/algm_drutiny.git"`
+`docker run -i -t --name=test-gh-action test-gh-action "TEST" "bomoko/lagoon-formatter:dev-master" "bomoko/algm_drutiny_profile vcs https://github.com/AmazeeLabs/algm_drutiny.git"`
