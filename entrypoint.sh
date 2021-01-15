@@ -29,6 +29,11 @@ composer clearcache
 git clone --depth=2 https://github.com/drutiny/drutiny.git drutiny
 cd ./drutiny
 
+# Gthub rate limiting may get reached - using GH Oauth token will prevent issue.
+if [ -n "$COMPOSER_TOKEN" ]; then
+  composer -q global config github-oauth.github.com "$COMPOSER_TOKEN"
+fi
+
 # Composer install Drutiny
 composer install --no-interaction --no-progress --no-suggest --no-dev --ignore-platform-reqs
 

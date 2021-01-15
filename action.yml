@@ -7,6 +7,9 @@ inputs:
     default: 'latest'
   composer-packages:
     description: 'Composer packages to include'
+  composer-repos:
+    description: 'Composer drutiny repo to include'
+    default: 'amazeelabs/algm_drutiny_plugin vcs https://github.com/AmazeeLabs/algm_drutiny.git'
 outputs:
   phar:
     description: 'The phar file'
