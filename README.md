@@ -21,13 +21,11 @@ with:
   tag-ref: 'v1.0.0'
 
 
-## Local dev
-
-Testing the test.sh locally copy ./entrypoint.sh to ./test.sh:
-
-`./test.sh v1.0.12 "bomoko/algm_drutiny_profile:dev-master, bomoko/lagoon-formatter:dev-master" "bomoko/algm_drutiny_plugin vcs https://github.com/AmazeeLabs/algm_drutiny.git"`
-
+## Local dev testing
 
 To docker build locally, try:
 
-`docker build -t test-gh-action . && docker run -i -t --name=test-gh-action test-gh-action`
+`docker build -t test-gh-action . && docker run -i -t --name=test-gh-action test-gh-action "bomoko/algm_drutiny_profile:dev-master, bomoko/lagoon-formatter:dev-master" "bomoko/algm_drutiny_profile vcs https://github.com/AmazeeLabs/algm_drutiny.git"`
+
+To run container with args again:
+`docker run -i -t --name=test-gh-action test-gh-action "bomoko/algm_drutiny_profile:dev-master, bomoko/lagoon-formatter:dev-master" "bomoko/algm_drutiny_profile vcs https://github.com/AmazeeLabs/algm_drutiny.git"`
